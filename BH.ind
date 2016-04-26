@@ -1,0 +1,16 @@
+\begin{theindex}
+
+  \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}()}}
+    \subitem [{\ubufontc  }]{\CJKfamily {PFTL}}, \hyperpage{2--11}
+  \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(12)}}
+    \subitem [{\ubufontc  AAA}]{\CJKfamily {PFTL}晶}, \hyperpage{1}
+  \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(3)}}
+    \subitem [{\ubufontc  ERF}]{\CJKfamily {PFTL}蘇}, \hyperpage{2}
+  \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(4)}}
+    \subitem [{\ubufontc  A}]{\CJKfamily {PFTL}日}, \hyperpage{1}
+    \subitem [{\ubufontc  A}]{\CJKfamily {PFTL}曰}, \hyperpage{1}
+  \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(8)}}
+    \subitem [{\ubufontc  AA}]{\CJKfamily {PFTL}昌}, \hyperpage{1}
+    \subitem [{\ubufontc  AA}]{\CJKfamily {PFTL}昍}, \hyperpage{1}
+
+\end{theindex}

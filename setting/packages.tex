@@ -1,0 +1,424 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%% XeLaTeX font support.
+\usepackage{fontspec,xltxtra,lipsum}
+\renewcommand{\lipsum}{【因字頭設計爲下沉三行，這裏需填寫字頭補充信息，如「異體字」、「六書」、「韻書」、「說文」之類。】} %實際排版時\lipsum命令應查找替換爲空。
+%%%% Macrology.
+%\usepackage{crippenmacros}
+%\setlength{\parindent}{0pt}
+%% XeTeX magic. Allows line breaking after en- and em-dashes.
+\XeTeXdashbreakstate 1
+
+%%%邊線等紙張佈局
+%\usepackage[centering,top=2.7cm,bottom=2.7cm,headsep=0.5cm,footskip=0.8cm,left=2.7cm,right=2.7cm,columnsep=2.5em]{geometry} 
+
+%%%%
+%%%% Packages.
+%%%%
+\usepackage{amsmath,amssymb}
+%% Etoolbox is full of LaTeX programming goodies.
+\usepackage{etoolbox}
+
+\usepackage{graphicx} % Required for including pictures
+\usepackage{eso-pic}%background pic
+\graphicspath{{figures/}} % Specifies the directory where pictures are stored
+
+\usepackage{lettrine} 
+%% Mathematical calculations.
+\usepackage{calc}
+
+\usepackage{titlesec,titleps,titletoc}
+\def\contentsname{目~~錄}%
+%%%%%%%%%%%%%%%%
+\titleformat{name=\chapter,numberless}[runin] 
+{\normalfont}
+{}{0pt}{}
+\titlespacing{\chapter}
+{0em}{0em}{\wordsep}  %\wordsep
+\settitlemarks{part,chapter,section,subsection,subsubsection}
+
+\titleformat{\section}[runin] 
+{\normalfont}
+{}{0pt}{}
+\titlespacing{\section}
+{0em}{0em}{\wordsep}  %\wordsep
+\settitlemarks{part,chapter,section,subsection,subsubsection}
+
+\titleformat{name=\section,numberless}[runin] 
+{\normalfont}
+{}{0pt}{}
+\titlespacing{\section}
+{0em}{0em}{\wordsep}  %\wordsep
+
+\settitlemarks{part,chapter,section,subsection,subsubsection}
+
+%%%phrase信息
+\titleformat{\subsection}[runin] 
+{\normalfont}
+{}{0pt}{}
+\titlespacing{\subsection}
+{0em}{0em}{\wordsep}  %\wordsep
+\settitlemarks{part,chapter,section,subsection,subsubsection}
+
+\titleformat{name=\subsection,numberless}[runin] 
+{\normalfont}
+{}{0pt}{}
+\titlespacing{\subsection}
+{0em}{0em}{\wordsep}  %\wordsep
+
+\settitlemarks{part,chapter,section,subsection,subsubsection}
+%%%%%runinhead
+\makeatletter
+\newcommand\runinhead{\@startsection{section*}{4}{\z@}%paragraph
+	{-6\p@}% \p@lus -4\p@ \@minus -4\p@}%
+	{-6\p@}%
+	{\normalfont\normalsize\bfseries\boldmath
+		\rightskip=\z@ \@plus 8em\pretolerance=10000 }}
+\makeatother
+
+%%%%%%%%%%%%%%%
+%%Special Signs
+\usepackage{bbding,pifont}
+\usepackage{wasysym}
+%% Colour.
+%%% color redefinition
+\usepackage{xcolor,tcolorbox}
+\definecolor{main}{RGB}{57,77,76}%丹青
+\definecolor{myred}{RGB}{255,20,147} %深粉紅
+%\definecolor{myred}{RGB}{255,0,255} %洋紅%紫紅
+\definecolor{myviolet}{RGB}{199,21,133} %中紫羅蘭紅
+\definecolor{mypurple}{RGB}{75,0,130} % 紫色
+%\definecolor{mypurple}{RGB}{85,26,139} % 紫色
+\definecolor{myblue}{RGB}{0,0,128} % 海軍藍 
+
+\definecolor{DianCyan}{RGB}{8,46,84} % 靛青
+\definecolor{DarkBlue}{RGB}{25,25,112} % 深藍
+\definecolor{GeRed}{RGB}{227,23,13} % 镉红
+\definecolor{IndiaRed}{RGB}{176,23,31} % 印度红
+\definecolor{Strawberry}{RGB}{135,38,87} % 草莓色
+\definecolor{SoilGreen}{RGB}{56,94,15} % 綠土色
+\definecolor{LightViolet}{RGB}{218,112,24} % 淡紫色
+\definecolor{SkyBlue}{RGB}{245,255,255} % 天藍色
+
+\pagecolor{SkyBlue} %背景色
+%% URL formatting.
+\usepackage{url}
+\urlstyle{sf}
+
+%% Date and time stuff.
+\usepackage{datetime}
+\settimeformat{hhmmsstime}
+
+%% Tweak the date and time formats.
+\usepackage[UKenglish,cleanlook]{isodate}
+
+%% Various symbols in text mode.
+\usepackage{textcomp}
+
+%% Examples.
+\let\gla\relax	% conflict with unicode-math
+\usepackage{expex}
+\lingset{everygla={\normalfont},
+	everyglb={\normalfont},
+	everyglc={\condensed\small},
+	glspace=1ex,
+	aboveglbskip=0pt,
+	aboveglcskip=-0.0625ex,
+	aboveglftskip=0.25ex plus 0.125ex minus 0.125ex,
+	belowglpreambleskip=0pt,
+	aboveexskip=0.5em plus 0.375em minus 0.25em,
+	belowexskip=0.5em plus 0.375em minus 0.25em,
+	interpartskip=0.5em plus 0.375em minus 0.25em,
+	labeloffset=0.5em,
+	textoffset=0.75em,
+	mincitesep=0.5em,
+	everytrailingcitation={\footnotesize}}
+\gathertags
+%% FIXME: This is a hack. Somewhere in expex (\judge ?) there's a hardcoded \rm that memoir dislikes.
+\renewcommand{\rm}{\rmfamily}
+%% FIXME: This is also a hack. Memoir also dislikes a hardcoded \tt which is caused by \getref.
+\renewcommand{\tt}{\ttfamily}
+
+%% Magic space handling for commands.
+%%
+%% Usage: \newcommand{\commandname}{...\xspace}
+\usepackage{xspace}
+
+%% Multiple column spanning cells in tables.
+%%
+%% Usage: \multicolumn{2}{l}{Two columns, left aligned text}
+\usepackage{multicol}
+
+%% Multiple row spanning cells in tables.
+%%
+%% Usage: \multirow{2}{*}{Two rows}
+\usepackage{multirow}
+
+%% Big delimiters for multirow in tables.
+%%
+%% Usage: \ldelim<delimiter>{rows}{width/*}[centred text]
+\usepackage{bigdelim}
+
+%% Fancy list environments.
+\usepackage{enumitem}
+%% No leading between items.
+\setenumerate{noitemsep}
+\setitemize{noitemsep}
+%% Make itemize deeper.
+%\renewlist{itemize}{itemize}{7}
+%% Change the labels of items.
+%\setlist[itemize,1]{label=•}
+%\setlist[itemize,2]{label=–}
+%\setlist[itemize,3]{label=⁃}
+%\setlist[itemize,4]{label=›}
+%\setlist[itemize,5]{label=‣}
+%\setlist[itemize,6]{label=⁍}
+%\setlist[itemize,7]{label=-}
+
+%% Strikeouts and underlines.
+%%
+%% Note that ‘strikeout’ is \st and not \so.
+\usepackage{soul}
+
+
+%% TeX logos.
+\usepackage{metalogo}
+\setLaTeXa{\scshape a}
+\setlogodrop{0.4375ex}
+\setlogokern{Xe}{-0.125ex}
+\setlogokern{eL}{-0.1875ex}
+\setlogokern{La}{-0.59375ex}
+\setlogokern{aT}{-0.1875ex}
+\setlogokern{Te}{-0.1875ex}
+\setlogokern{eX}{-0.125ex}
+\setlogokern{eT}{-0.1875ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%list environment resetting
+
+%%%%%%%%%%%%%%%%%%%%beamer item style
+\usepackage{tikz,tkz-tab}% Cajas de Teoremas, ejemplos, etc.
+\usetikzlibrary{positioning,shadows,backgrounds,calc}%
+\usepackage{tikzpagenodes}
+
+
+%%%%%%%
+\usepackage{ulem}
+%自定義下劃線樣式
+\newcommand\eline{\bgroup\markoverwith
+	{\textcolor{gray!37}{\rule[-0.4ex]{0.7pt}{1.12em}}}\ULon} %entryline 距離，線長突出，線粗
+\newcommand\elinei{\bgroup\markoverwith
+	{\textcolor{GeRed}{\rule[-0.41ex]{2.2pt}{14.3pt}}}\ULon} %entryline 距離，線長突出，線粗
+\newcommand\elineii{\bgroup\markoverwith
+	{\textcolor{myred}{\rule[-0.21ex]{1pt}{40pt}}}\ULon} %entryline 距離，線長突出，線粗
+% Listas -- con puntos
+\usepackage{enumitem}
+\newcommand{\witem}[1]{\item[{\bf #1)}]}
+\newcommand{\mitem}[1]{\item \HGB #1} %mainitem
+\newcommand{\sitem}[1]{\item \HGB #1} %subitem
+\newcommand{\eitem}[1]{\item #1} %exampleitem
+
+
+%\usepackage{enumerate}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{engord} %1st 3rd之類序數自動生成
+%\usepackage{paralist}
+\usepackage{enumitem}
+%\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+%\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}%item間距設置
+%\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+%\renewcommand{\labelitemi}{\textcolor{red}{\textbf{\twonotes}}}
+
+%\usepackage{etoolbox}
+
+\newenvironment{mainenum}[1]{\begin{enumerate}[label=\protect\fontsizec{0.42cm}\color{black}\ncircbrs{\arabic*},ref=\arabic*,itemindent=1.1em,noitemsep,labelsep=0.1em,leftmargin=0em,topsep=0pt,partopsep=0pt] %此enum與原\Deff命令中enum一致item序列黑方形
+		  #1}
+	{\end{enumerate}} %義項細分用環境
+
+%%%%%%%%%%%%%%%%%%%%
+%%%tcolorbox and picture in paragraph setting
+\usepackage{picinpar}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+% preamble
+\tcbuselibrary{breakable}
+\tcbuselibrary{skins} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%quote box design
+\usepackage{varwidth}
+\newtcolorbox{quotebox}[2][]{beamer,skin=enhancedlast jigsaw,interior hidden,
+	boxsep=0pt,top=0pt,colframe=red,coltitle=red!50!black,
+	fonttitle=\bfseries\sffamily,
+	attach boxed title to bottom center,
+	boxed title style={empty,boxrule=0.5mm},
+	varwidth boxed title=0.5\linewidth,
+	underlay boxed title={
+		\draw[white,line width=0.5mm]
+		([xshift=0.3mm-\tcboxedtitleheight*2,yshift=0.3mm]title.north west)
+		--([xshift=-0.3mm+\tcboxedtitleheight*2,yshift=0.3mm]title.north east);
+		\path[draw=red,top color=white,bottom color=red!50!white,line width=0.5mm]
+		([xshift=0.25mm-\tcboxedtitleheight*2,yshift=0.25mm]title.north west)
+		cos +(\tcboxedtitleheight,-\tcboxedtitleheight/2)
+		sin +(\tcboxedtitleheight,-\tcboxedtitleheight/2)
+		-- ([xshift=0.25mm,yshift=0.25mm]title.south west)
+		-- ([yshift=0.25mm]title.south east)
+		cos +(\tcboxedtitleheight,\tcboxedtitleheight/2)
+		sin +(\tcboxedtitleheight,\tcboxedtitleheight/2); },
+	title={#2},#1}
+
+%蛙眼box
+\tcbset{frogbox/.style={enhanced,colback=green!10,colframe=green!65!black,
+		enlarge top by=5.5mm,
+		overlay={\foreach \x in {2cm,3.5cm} {
+				\begin{scope}[shift={([xshift=\x]frame.north west)}]
+					\path[draw=green!65!black,fill=green!10,line width=1mm] (0,0) arc (0:180:5mm);
+					\path[fill=black] (-0.2,0) arc (0:180:1mm);
+				\end{scope}}}]}}
+
+\tcbset{beamer,enhanced jigsaw,breakable,colback=red!5!white,colframe=red!75!black,
+	fonttitle=\bfseries}
+
+
+%grammar box design
+\usepackage{varwidth}
+\newtcolorbox{grambox}[2][]{beamer,enhanced,skin=enhancedlast jigsaw,
+	attach boxed title to top left={xshift=-4mm,yshift=-0.5mm},
+	fonttitle=\tpfontb,varwidth boxed title=0.7\linewidth,
+	colbacktitle=blue!45!white,colframe=red!50!black,
+	interior style={top color=blue!10!white,bottom color=red!10!white},
+	boxed title style={empty,arc=0pt,outer arc=0pt,boxrule=0pt},
+	underlay boxed title={
+		\fill[blue!45!white] (title.north west) -- (title.north east)
+		-- +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm)
+		-- ([xshift=4mm,yshift=0.5mm]frame.north east) -- +(0mm,-1mm)
+		-- (title.south west) -- cycle;
+		\fill[blue!45!white!50!black] ([yshift=-0.5mm]frame.north west)
+		-- +(-0.4,0) -- +(0,-0.3) -- cycle;
+		\fill[blue!45!white!50!black] ([yshift=-0.5mm]frame.north east)
+		-- +(0,-0.3) -- +(0.4,0) -- cycle; },
+	title={#2},#1}
+
+\newenvironment{usage}[2]  %define usage box USAGE NOTE
+{\begin{grambox}[left=1mm,right=1mm,top=1.7mm,bottom=1mm]{\textbf{字辯}：\textbf{#1}}
+		\setlength\parindent{1em} #2}
+	{\end{grambox}}
+
+\newenvironment{thesaurus}[1] %define Thesaurus box
+{\begin{grambox}[left=1mm,right=1mm,top=1.7mm,bottom=1mm]{Thesaurus}
+		\setlength\parindent{1em}  #1}
+	{\end{grambox}}
+
+\newenvironment{collocations}[1] %define Thesaurus box
+{\begin{grambox}[left=1mm,right=1mm,top=1.7mm,bottom=1mm]{Collocations}
+		\setlength\parindent{1em} #1}
+	{\end{grambox}}
+
+\newenvironment{synonym}[1] %define Synonyms box
+{\begin{grambox}[left=1mm,right=1mm,top=1.7mm,bottom=1mm]{Synonyms}
+		\setlength\parindent{1em}  #1}
+	{\end{grambox}}
+
+\newenvironment{whistory}[1] %define Synonyms box
+{\begin{grambox}[left=1mm,right=1mm,top=1.7mm,bottom=1mm]{{\fontsizec{0.6cm} 攷~~證}}
+		\setlength\parindent{2em}#1}
+	{\end{grambox}}  %%要在Lemma環境之外書寫
+
+%%%%%%%%%%%%
+%%subscript and superscript對齊
+\usepackage{leftidx}
+
+
+%%%%%%%%%%%%%%%%%
+%插圖及圖文繞排設計
+\usepackage{picinpar}
+
+
+%make index
+\usepackage[noautomatic]{imakeidx}%[noautomatic]選項可使正文前printindex(終極定稿)，可以針對不同索引使用不同驅動如zhmakeindex, makeindex, xindy之類
+%\makeindex[name=ZB,title=字辯索引,intoc,columns=3,columnseprule=true,columnsep=5pt]
+\makeindex[name=EC,title=英漢索引,intoc,columns=5,columnseprule=true,columnsep=5pt,options={-s StyleInd.ist}]
+\makeindex[name=TH,title=類詞索引,intoc,columns=5,columnseprule=true,columnsep=5pt]%,
+\makeindex[name=SJM,title=角碼索引,intoc,columns=5,columnseprule=true,columnsep=5pt,options=-s StyleInd]
+\makeindex[name=GY,title=國音索引,intoc,columns=4,columnseprule=true,columnsep=5pt,options=-s StyleInd]
+\makeindex[name=YY,title=粵音索引,intoc,columns=4,columnseprule=true,columnsep=5pt,options=-s StyleInd]
+\makeindex[name=BH,title=總畫索引,intoc,columns=5,columnseprule=true,columnsep=5pt,options=-s StyleInd]
+\makeindex[name=CJ,title=倉頡索引,intoc,columns=6,columnseprule=true,columnsep=5pt,options=-s StyleInd]
+%\setcounter{secnumdepth}{3}
+%\setcounter{tocdepth}{3}
+
+\makeatletter
+\def\@idxitem{\par\addvspace{7\p@ \@plus 3\p@ \@minus 3\p@}\hangindent 17\p@}
+\def\subitem{\par\hangindent 10\p@ \hspace*{10\p@}}
+\def\subsubitem{\par\hangindent 20\p@ \hspace*{20\p@}}
+\def\indexspace{}
+\patchcmd\theindex{\indexname}{\indexname\vspace{5pt}}{}{}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%
+%%splitidx多索引製作方式待研究
+%\usepackage{splitidx}
+%\newindex[Thesaurus]{Thesaurus}
+%\newindex[Phrasal Verbs]{PV}
+%\newindex[Idioms]{IDM}
+%\newindex[漢英索引]{CE}
+%\newindex[Word of Stars]{STARS}
+
+%% Bookmarks.
+%%
+%% This gives more control over PDF bookmarks, which are used to link to all the sectional divisions.
+\usepackage[final]{bookmark}
+
+%% Hyperlinks.
+%%
+%% Hyperref controls the colours of links (citations, URLs, etc.) which are produced by BibLaTeX.
+%% To turn off colouring completely, set both colorlinks=false and pdfborder=[rgb]{0,0,0}.
+\usepackage{hyperref}  %若用imakeidx則hyperref需在其後導入
+%% Hyperlinks configuration.
+\hypersetup{	% Break links across lines into two separate identical links.
+	breaklinks=true,
+	% Whether to colour link text.
+	%colorlinks=false,
+	colorlinks=true,
+	% Colours of link text {R G B}.
+	linkcolor={rgb:blue,1;black,1},
+	%linkcolor=black,
+	anchorcolor=black,
+	%citecolor=green,
+	citecolor=black,
+	filecolor=cyan,
+	menucolor=red,
+	pagebackref=true
+	runcolor=cyan,
+	urlcolor=blue,
+	% How links behave when clicked: /O outline, /I inverse, /N nothing, /P "pressed" inset
+	% Note that many PDF viewers seem to ignore this.
+	pdfhighlight=/P,
+	% Thickness of border around links. (An alternative to coloured text.)
+	% This is automatically disabled if colorlinks=true.
+	%pdfborder={0 0 1},
+	pdfborder={0 0 0},
+	% Colours of borders, {R G B}
+	citebordercolor={0 1 0},
+	filebordercolor={1 .5 .5},
+	linkbordercolor={1 0 0},
+	menubordercolor={1 0 0},
+	urlbordercolor={0 0 1},
+	runbordercolor={0 .7 .7},
+	%% Bookmarks configuration.
+	% List section numbers in bookmarks.
+	bookmarksnumbered=true,
+	% Whether bookmarks are open by default.
+	bookmarksopen=true,
+	% How deep bookmarks should be open by default.
+	bookmarksopenlevel=3,
+	pdfencoding=unicode}

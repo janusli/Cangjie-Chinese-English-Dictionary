@@ -1,0 +1,20 @@
+\begin{theindex}
+
+  \item {\bfseries  \color  {red}}
+    \subitem {\fontsize  {0.32cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}()}}
+      \subsubitem \nobreakspace {}\textbf  {}[{\CJKfamily {IBMP}}], \hyperpage{2--14}
+  \item {\bfseries  \color  {red}丨}
+    \subitem {\fontsize  {0.33cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(8)}}
+      \subsubitem \nobreakspace {}\textbf  {昌}[{\CJKfamily {IBMP}AA}], \hyperpage{1}
+  \item {\bfseries  \color  {red}日}
+    \subitem {\fontsize  {0.32cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(12)}}
+      \subsubitem \nobreakspace {}\textbf  {晶}[{\CJKfamily {IBMP}AAAFF}], \hyperpage{2}
+    \subitem {\fontsize  {0.32cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(8)}}
+      \subsubitem \nobreakspace {}\textbf  {昍}[{\CJKfamily {IBMP}AA}], \hyperpage{1}
+    \subitem {\fontsize  {0.33cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(4)}}
+      \subsubitem \nobreakspace {}\textbf  {日}[{\CJKfamily {IBMP}A}], \hyperpage{1}
+  \item {\bfseries  \color  {red}曰}
+    \subitem {\fontsize  {0.33cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(4)}}
+      \subsubitem \nobreakspace {}\textbf  {曰}[{\CJKfamily {IBMP}A}], \hyperpage{1}
+
+\end{theindex}

@@ -1,0 +1,339 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%中文字體
+\usepackage[AutoFallBack]{xeCJK}
+%\usepackage{CJKnumb}
+\usepackage{zhnumber}
+%\zhnumsetup{style={Financial}} %宏包zhnumber-utf8中Financial樣式已修改為十天干計數(甲、乙、丙、丁、戊、己、庚、辛、壬、癸)，若更新，則需重新修改宏包源文件。十以上數目及六十干支不知如何映射。。
+
+%Font size customize
+\newcommand{\fontsizec}[1]{\fontsize{#1}{\baselineskip}\selectfont}
+\linespread{1.5}%行距
+%%%中文字體
+%中文相鄰標點間距
+\xeCJKsetkern{：}{「}{0.2em} %相鄰標點間距
+\xeCJKsetkern{：}{『}{0.2em} %相鄰標點間距
+
+\xeCJKsetkern{」}{、}{0.1em} %相鄰標點間距
+\xeCJKsetkern{」}{。}{0.1em} %相鄰標點間距
+\xeCJKsetkern{」}{；}{0.1em} %相鄰標點間距
+\xeCJKsetkern{」}{，}{0.1em} %相鄰標點間距
+\xeCJKsetkern{」}{！}{0.1em} %相鄰標點間距
+\xeCJKsetkern{」}{？}{0.1em} %相鄰標點間距
+
+\xeCJKsetkern{』}{、}{0.1em} %相鄰標點間距
+\xeCJKsetkern{』}{。}{0.1em} %相鄰標點間距
+\xeCJKsetkern{』}{；}{0.1em} %相鄰標點間距
+\xeCJKsetkern{』}{，}{0.1em} %相鄰標點間距
+\xeCJKsetkern{』}{！}{0.1em} %相鄰標點間距
+\xeCJKsetkern{』}{？}{0.1em} %相鄰標點間距
+
+\xeCJKsetkern{。}{」}{0.1em} %相鄰標點間距
+\xeCJKsetkern{！}{」}{0.1em} %相鄰標點間距
+\xeCJKsetkern{？}{」}{0.1em} %相鄰標點間距
+\xeCJKsetkern{』}{」}{0.1em} %相鄰標點間距
+
+\xeCJKsetkern{。}{』}{0.1em} %相鄰標點間距
+\xeCJKsetkern{！}{』}{0.1em} %相鄰標點間距
+\xeCJKsetkern{？}{』}{0.1em} %相鄰標點間距
+
+\xeCJKsetkern{「}{『}{0.1em} %相鄰標點間距
+
+\xeCJKsetkern{）}{、}{0.1em} %相鄰標點間距
+\xeCJKsetkern{）}{。}{0.1em} %相鄰標點間距
+\xeCJKsetkern{）}{；}{0.1em} %相鄰標點間距
+\xeCJKsetkern{）}{，}{0.1em} %相鄰標點間距
+\xeCJKsetkern{）}{！}{0.1em} %相鄰標點間距
+\xeCJKsetkern{）}{？}{0.1em} %相鄰標點間距
+\xeCJKsetkern{）}{：}{0.1em} %相鄰標點間距
+
+\renewcommand{\CJKglue}{\hskip 0pt plus 0.07\baselineskip} %漢字字距調整
+\renewcommand{\CJKecglue}{\hskip 0pt plus 0.17\baselineskip} %漢字與西文及Arabic Number之字間距調整
+
+%%中文字體設置
+\setCJKmainfont[BoldFont=H-BuMing-Bold,ItalicFont=DFHKStdKai-B5CP]{I.BMingCP}  % .Heiti GB18030PUA %IPAGothic %I.BMingCP %IPAGothicBlackRoundSquare 為正常使用IPAGothic字體20以上的帶圈數字
+%[BoldFont=H-BuMing-Bold,ItalicFont=DFHKStdKai-B5CP]
+%\renewcommand{\textbf}[1]{{\linfonta\HBMB #1}}
+%\renewcommand{\textit}[1]{{\linfontd\DHKCP #1}}
+\setmainfont{Liberation Serif}
+
+\setCJKfallbackfamilyfont{\CJKrmdefault}[BoldFont=]
+{ [SlantedFont=]{HanaMinA} ,     %HanaMinA
+	[BoldFont=]          {HanaMinB} }   %HanaMinB
+
+\PassOptionsToPackage{CJKchecksingle}{xeCJK}%%CJKchecksingle衝突解決，但似乎未起作用。
+\xeCJKsetup{CheckSingle=true,PunctStyle=banjiao,RubberPunctSkip=false}%AutoFakeBold=2,僞粗體選項 %PunctWidth=0.3em, 標點距離固定值選項
+\XeTeXlinebreaklocale"zh_TW"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+
+
+\usepackage{xeCJKfntef}[2014/11/05]
+\usepackage{fix-cm}
+\xeCJKsetup{%
+	underwave/symbol=
+	\fontsize{0.3em}{0pt}%
+	\fontencoding{U}\fontfamily{lasy}\selectfont
+	\char 58\relax}
+\xeCJKsetup { underwave = { format = \color{black}, depth=0.15em} } %depth值為底線與字體間距
+\xeCJKsetup { underline = { format = \color{black}, depth=0.2em, thickness=0.3pt} }
+\newcommand*\W{\CJKunderwave*-} %可斷下浪線"-"前星號使浪線不跨標點
+\newcommand*\Z{\CJKunderline-} %可斷下直線
+\renewcommand{\textsf}{\Z}%重新定義\textsf命令使ctrl+shift+a快捷鍵輸入專名直線以提高排版效率
+\renewcommand{\emph}{\W}%重新定義\textsf命令使ctrl+shift+e快捷鍵輸入專名浪線以提高排版效率
+
+%%%%%中文常用字型定義
+%%%%%%%%%%%%%
+%%%%%%%%%中文字體
+%%%%%%%%宋體仿宋體
+
+\setCJKfamilyfont{WYFS}{WenyueType GutiFangsong (Noncommercial Use)}% 文悅聚珍仿宋體
+\newcommand{\WYFS}{\CJKfamily{WYFS}}% 文悅聚珍仿宋體
+
+\setCJKfamilyfont{ZSKS}{Chekiang Shu Ke Sung}% 浙江書刻宋體
+\newcommand{\ZSKS}{\CJKfamily{ZSKS}}% 浙江書刻宋體
+
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%明體
+
+\setCJKfamilyfont{IBMP}{I.BMingCP}	% I.BMing新明體
+\newcommand{\IBMP}{\CJKfamily{IBMP}}    %I.BMing日文新明體
+
+\setCJKfamilyfont{KXD}{TypeLand KhangXi Dict}	% 康熙字典體
+\newcommand{\KXD}{\CJKfamily{KXD}}    %康熙字典體
+
+\setCJKfamilyfont{HNMA}{HanaMinA}	% 花園明朝體A http://fonts.jp/hanazono/
+\newcommand{\HNMA}{\CJKfamily{HNMA}}    %花園明朝體A
+%花園明朝A（HanaMinA.ttf）
+%46,515字（非漢字 6,702字、漢字 31,573字、IVD異体字 8,240字。フォント認識用のU+20000を除く)
+%非漢字
+%%CJK統合漢字（URO、URO+、Ext-A）
+%%CJK互換漢字（補助を含む）およびその正規化符号位置
+%%JIS X 0213:2004収録の漢字
+%%IVD（およびSIPのベースグリフ）
+%通用規範漢字表（通用规范汉字表）収録の漢字
+%%HKSCS（香港増補字符集）収録の漢字 
+
+\setCJKfamilyfont{HNMB}{HanaMinB}	% 花園明朝體B http://fonts.jp/hanazono/
+\newcommand{\HNMB}{\CJKfamily{HNMB}}    %花園明朝體B
+%52,844漢字（フォント認識用のU+4E00、フォント名の「花」「園」「明」「朝」を除く）およびASCII
+%%CJK統合漢字（Ext.B、Ext.C、Ext.D、Ext.E） 
+
+
+\setCJKfamilyfont{HBM}{H-BuMing-Regular} % 不明體
+\newcommand{\HBM}{\CJKfamily{HBM}} 
+
+\setCJKfamilyfont{HBMB}{H-BuMing-Bold} % 不明體粗
+\newcommand{\HBMB}{\CJKfamily{HBMB}} 
+
+\setCJKfamilyfont{HBMBCP}{H-BuMing-BoldCP} % 不明體粗標點修改版
+\newcommand{\HBMBCP}{\CJKfamily{HBMBCP}} 
+
+\setCJKfamilyfont{HMOP}{H-MingLiU-UN-03} % 舊細明體
+\newcommand{\HMOP}{\CJKfamily{HMOP}} 
+
+
+%%%%%%%%%%%%%
+%%%%%%%%%%%楷體
+
+\setCJKfamilyfont{DHKCP}{DFHKStdKai-B5CP}  % 華康香港標準楷體標點修正版
+\newcommand{\DHKCP}{\CJKfamily{DHKCP}}      % 華康香港標準楷體標點修正版
+
+%%%%%%%%%%%%
+%%%%%%%%%%黑體
+
+\setCJKfamilyfont{HGB}{HGBLight} %% 冬青國標輕黑繁
+\newcommand{\HGB}{\CJKfamily{HGB}}    %%冬青國標輕黑繁
+%\setCJKfamilyfont{HGBCP}{HGBLightCP} %% 冬青國標輕黑繁
+%\newcommand{\HGBCP}{\CJKfamily{HGBCP}}    %%冬青國標輕黑繁
+
+\setCJKfamilyfont{HGBT}{HGBThin} %% 冬青國標細黑繁
+\newcommand{\HGBT}{\CJKfamily{HGBT}}    %%冬青國標細黑繁
+
+\setCJKfamilyfont{HGBM}{HGBMedium} %% 冬青國標中黑繁
+\newcommand{\HGBM}{\CJKfamily{HGBM}}    %%冬青國標中黑繁
+
+\setCJKfamilyfont{FZCCH}{FZChaoCuHei-M10} %% 方正超粗黑繁
+\newcommand{\FZCCH}{\CJKfamily{FZCCH}}    %%方正超粗黑繁
+
+\setCJKfamilyfont{FZCH}{FZCuHei-B03} %% 方正粗黑繁
+\newcommand{\FZCH}{\CJKfamily{FZCH}}    %%方正粗黑繁
+
+\setCJKfamilyfont{PFT}{PingFang TC Regular} %%平方黑臺灣標準常規
+\newcommand{\PFT}{\CJKfamily{PFT}}    %%平方黑臺灣標準常規
+
+\setCJKfamilyfont{PFTL}{PingFang TC Light} %%平方黑臺灣標準輕
+\newcommand{\PFTL}{\CJKfamily{PFTL}}    %%平方黑臺灣標準常輕
+
+%%%%%%%%%%%%%%
+%%%%%%%%書家系列字體
+%\setCJKfamilyfont{TYZK}{A-OTF Outai Kaisho Std} %%田英章楷書大字集名稱修正版
+%\newcommand{\TYZK}{\CJKfamily{TYZK}}    %%田英章楷書大字集需繁體輸入
+\setCJKfamilyfont{TYZK}{TYZKai} %%田英章楷書大字集名稱修正版
+\newcommand{\TYZK}{\CJKfamily{TYZK}}    %%田英章楷書大字集需繁體輸入
+
+\setCJKfamilyfont{HNL}{HannotateTCL} %%華康手札體繁Regular名稱修改版
+\newcommand{\HNL}{\CJKfamily{HNL}}   %%華康手札體Regular繁名稱修改版
+
+\setCJKfamilyfont{HNB}{HannotateTCB} %%華康手札體繁Bold名稱修改版
+\newcommand{\HNB}{\CJKfamily{HNB}}   %%華康手札體Bold繁名稱修改版
+
+\setCJKfamilyfont{HZL}{HanzipenTCL}    %%華康翩翩體繁Regular名稱修改版
+\newcommand{\HZL}{\CJKfamily{HZL}}   %%華康翩翩體繁Regular名稱修改版
+
+\setCJKfamilyfont{HZB}{HanzipenTCB}    %%華康翩翩體繁Bold名稱修改版
+\newcommand{\HZB}{\CJKfamily{HZB}}   %%華康翩翩體繁Bold名稱修改版
+
+%%%%%%%%%%%%%%%
+%%%%%%%%%英文常用字体
+
+%Linux Liberation Fonts
+\newfontfamily\linfont{Liberation Serif}
+\newfontfamily\linfonti{LiberationSerif-Italic}
+\newfontfamily\linfontb{LiberationSerif-Bold}
+\newfontfamily\linfontbi{LiberationSerif-BoldItalic}
+\newfontfamily\linfontsb{LiberationSans-Bold}
+\newfontfamily\linfontsnb{LiberationSansNarrow-Bold}
+
+
+%Linux Libertine Fonts
+\newfontfamily\lixfont{Linux Libertine}
+\newfontfamily\lixfonti{Linux Libertine Italic}
+\newfontfamily\lixfontb{Linux Libertine Bold}
+\newfontfamily\lixfontbi{Linux Libertine Bold Italic}
+\newfontfamily\lixfontsb{Linux Libertine Semibold}
+\newfontfamily\lixfontsbi{Linux Libertine Semibold Italic}
+\newfontfamily\lixfontd{Linux Libertine Display}
+
+%Linux BioLinum Fonts
+\newfontfamily\libfont{Linux Biolinum}
+\newfontfamily\libfonti{Linux Biolinum Italic}
+\newfontfamily\libfontb{Linux Biolinum Bold}
+\newfontfamily\libfontk{Linux Biolinum Keyboard}
+
+%ubuntu font family
+\newfontfamily\ubufont{Ubuntu} %ubuntu regular
+\newfontfamily\ubufonti{Ubuntu Italic}
+\newfontfamily\ubufontb{Ubuntu Bold}
+\newfontfamily\ubufontm{Ubuntu Medium}
+\newfontfamily\ubufontl{Ubuntu Light}
+\newfontfamily\ubufontc{Ubuntu Condensed}
+
+%Proforma[1988 - Petr van Blokland] SC Font Series
+\newfontfamily\profonta{Proforma-BoldSC}
+\newfontfamily\profontb{Proforma-BoldItalicSC}
+\newfontfamily\profontc{Proforma-MediumSC}
+\newfontfamily\profontd{Proforma-MediumItalicSC}
+\newfontfamily\profonte{Proforma-BookSC}
+\newfontfamily\profontf{Proforma-BookItalicSC}
+\newfontfamily\tpfont{Trajan Pro 3}
+\newfontfamily\tpfontb{Trajan Pro 3 Bold}
+
+
+%Junicode fonts
+\newfontfamily\unifont{Junicode}
+\newfontfamily\unifontb{Junicode-Bold}
+\newfontfamily\unifonti{Junicode-Italic}
+\newfontfamily\unifontbi{Junicode-BoldItalic}
+
+%Century Schoolbook
+\newfontfamily\csbfont{Century Schoolbook}
+\newfontfamily\csbfontb{Century Schoolbook Bold}
+\newfontfamily\csbfonti{Century Schoolbook Italic}
+\newfontfamily\csbfontbi{Century Schoolbook Bold Italic}
+
+%%Cambria 
+\newfontfamily\camfont{Cambria}
+\newfontfamily\camfontb{Cambria Bold}
+\newfontfamily\camfonti{Cambria Italic}
+\newfontfamily\camfontbi{Cambria Bold Italic}
+\newfontfamily\camfontm{Cambria Math}
+
+%%Minion Pro 
+\newfontfamily\mpfont{Minion Pro}
+\newfontfamily\mpfontb{Minion Pro Bold}
+\newfontfamily\mpfonti{Minion Pro Italic}
+\newfontfamily\mpfontbi{Minion Pro Bold Italic}
+%
+\newfontfamily\mpfontbc{MinionPro-BoldCn}
+\newfontfamily\mpfontbci{MinionPro-BoldCnIt}
+\newfontfamily\mpfontm{MinionPro-Medium}
+\newfontfamily\mpfontmi{MinionPro-MediumIt}
+\newfontfamily\mpfontsb{MinionPro-Semibold}
+\newfontfamily\mpfontsbi{MinionPro-SemiboldIt}
+
+%%PT Russian Fonts
+\newfontfamily\ptfont{PT Serif}
+\newfontfamily\ptfontb{PT Serif Bold}
+\newfontfamily\ptfonti{PT Serif Italic}
+\newfontfamily\ptfontbi{PT Serif Bold Italic}
+\newfontfamily\ptfontc{PT Serif Caption}
+\newfontfamily\ptfontci{PT Serif Caption Italic}
+\newfontfamily\ptfonts{PT Sans}
+\newfontfamily\ptfontsb{PT Sans Bold}
+\newfontfamily\ptfontsi{PT Sans Italic}
+\newfontfamily\ptfontsc{PT Sans Caption}
+\newfontfamily\ptfontscb{PT Sans Caption Bold}
+\newfontfamily\ptfontsn{PT Sans Narrow}
+\newfontfamily\ptfontsnb{PT Sans Narrow Bold}
+\newfontfamily\ptfontm{PT Mono}
+\newfontfamily\ptfontmb{PT Mono Bold}
+
+%Akzidenz Grotesk[1966 - Günter Gerhard Lange]
+\newfontfamily\akzfont{Akzidenz-Grotesk BQ Extra Bold Condensed}
+
+%Luminari
+\newfontfamily\lumfont{Luminari}
+
+%Lithos Pro Regular 
+\newfontfamily\litfont{LithosPro-Regular}
+\newfontfamily\litfontb{LithosPro-Black}
+
+
+%Antique Olive[1962 - Roger Excoffon]
+\newfontfamily\antfont{AntiqueOliveStd-BoldCond}
+
+%Agenda[1993 - Greg Thompson]
+\newfontfamily\agefonta{Agenda-BoldUltraCondensed}
+\newfontfamily\agefontb{Agenda-BoldExtraCondensed}
+\newfontfamily\agefontc{Agenda-LightUltraCondensed}
+\newfontfamily\agefontd{Agenda-LightExtraCondensed}
+
+%%%編號字體
+\newfontfamily\numbrs{MnumBRS}
+\newfontfamily\numbs{MnumBS}
+\newfontfamily\numdrs{MnumDRS}
+\newfontfamily\numds{MnumDS}
+\newfontfamily\numpy{MnumPYY}
+%字母編號字體
+\newfontfamily\alphbcu{AlphNumBC} %%圓黑Upper Case
+\newfontfamily\alphbcl{AlphNumBCc} %%圓黑lower case
+\newfontfamily\alphbru{AlphNumBRS} %%圓角方黑Upper Case
+\newfontfamily\alphbrl{AlphNumBRSs} %%圓角方黑lower case
+\newfontfamily\alphbsu{AlphNumBS} %%方角方黑Upper Case
+\newfontfamily\alphbsl{AlphNumBSs} %%方角方黑lower case
+\newfontfamily\alphbsu{AlphNumDRS} %%圓角白底Upper Case
+\newfontfamily\alphbsl{AlphNumDRSs} %%圓角白底lower case
+\newfontfamily\alphbwcu{AlphNumWC} %%圓形白底Upper Case
+\newfontfamily\alphwcl{AlphNumWCc} %%圓形白底lower case
+
+
+%%%%編號字體命令Setting
+\newcommand{\ncircbrs}[1]{{\fontspec[Ligatures=Discretionary]{MnumBRS}(#1)}}%%0-100方黑圓角101-200黑圈數字用字體<唯數字93與98都映射為88待解決>
+\newcommand{\ncircbs}[1]{{\fontspec[Ligatures=Discretionary]{MnumBS}(#1)}}%%0-100黑方框101-200黑圈數字用字體<唯數字93與98都映射為88待解決>
+\newcommand{\ncircdrs}[1]{{\fontspec[Ligatures=Discretionary]{MnumDRS}(#1)}}%%0-100圓角方框101-200黑圈數字用字體<唯數字93與98都映射為88待解決>
+\newcommand{\ncircds}[1]{{\fontspec[Ligatures=Discretionary]{MnumDS}(#1)}}%%0-100圓角方方框101-200黑圈數字用字體<唯數字93與98都映射為88待解決>
+
+%%
+%%%%%
+\newcommand{\Alphcircbcu}[1]{{\fontspec[Ligatures=Discretionary]{AlphNumBC}(#1)}}%%%%1-26圓黑大寫Upper字母，其餘數字同Mnum系列
+\newcommand{\Alphcircbcl}[1]{{\fontspec[Ligatures=Discretionary]{AlphNumBCc}(#1)}}%%%%1-26圓黑小寫lower字母，其餘數字同Mnum系列
+\newcommand{\Alphcircbrsu}[1]{{\fontspec[Ligatures=Discretionary]{AlphNumBRS}(#1)}}%%1-26圓角方形黑底大寫Upper字母，其餘數字同Mnum系列
+\newcommand{\Alphcircbrsl}[1]{{\fontspec[Ligatures=Discretionary]{AlphNumBRSs}(#1)}}%%%%1-26圓角方形黑底小寫lower字母，其餘數字同Mnum系列
+\newcommand{\Alphcircbsu}[1]{{\fontspec[Ligatures=Discretionary]{AlphNumBS}(#1)}}%%1-26圓角方形黑底大寫Upper字母，其餘數字同Mnum系列
+\newcommand{\Alphcircbsl}[1]{{\fontspec[Ligatures=Discretionary]{AlphNumBSs}(#1)}}%%%%1-26圓角方形黑底小寫lower字母，其餘數字同Mnum系列
+\newcommand{\Alphcircdrsu}[1]{{\fontspec[Ligatures=Discretionary]{AlphNumDRS}(#1)}}%%1-26圓角方形白底大寫Upper字母，其餘數字同Mnum系列
+\newcommand{\Alphcircdrsl}[1]{{\fontspec[Ligatures=Discretionary]{AlphNumDRSs}(#1)}}%%%%1-26圓角方形白底小寫lower字母，其餘數字同Mnum系列
+\newcommand{\Alphcircwcu}[1]{{\fontspec[Ligatures=Discretionary]{AlphNumWC}(#1)}}%%1-26圓形白底大寫Upper字母，其餘數字同Mnum系列
+\newcommand{\Alphcircwcl}[1]{{\fontspec[Ligatures=Discretionary]{AlphNumWCc}(#1)}}%%%%1-26圓形白底小寫lower字母，其餘數字同Mnum系列

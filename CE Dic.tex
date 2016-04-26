@@ -1,0 +1,90 @@
+ %!TEX TS-program = xelatex
+\documentclass[a4paper,openany,12pt]{book}
+%%%% Packages.
+\input{setting/packages.tex}
+%%%% Font settings.
+\input{setting/fonts.tex}
+%%%% Layout.
+\input{setting/layout.tex}
+%%%% New Commands and Environments.
+\input{setting/NewComEnv.tex}
+
+\includeonly{data/A}
+\begin{document}
+\include{data/TitlePage}
+
+\pagestyle{mdpage}
+\pagenumbering{Roman}
+\chapterimage{chapter_head_1}
+
+%	\phantomsection
+%	\addcontentsline{toc}{chapter}{簡目}
+%\textsc{}	\shorttoc{簡目}{0}
+%	\chaptermark{簡目}
+
+\include{data/Preface}
+\phantomsection
+\addcontentsline{toc}{chapter}{目錄}
+\tableofcontents
+
+\phantomsection
+\addcontentsline{toc}{part}{辭典正文}
+\mainmatter
+\twocolumn
+\pagestyle{dicpage}
+\pagenumbering{arabic}
+
+%%mainmatter=================
+%%==========================
+\include{data/A}
+\include{data/B}
+\include{data/C}
+\include{data/D}
+\include{data/E}
+\include{data/F}
+\include{data/G}
+\include{data/H}
+\include{data/I}
+\include{data/J}
+\include{data/K}
+\include{data/L}
+\include{data/M}
+\include{data/N}
+\include{data/O}
+\include{data/P}
+\include{data/Q}
+\include{data/R}
+\include{data/S}
+\include{data/T}
+\include{data/U}
+\include{data/V}
+\include{data/W}
+\include{data/X}
+\include{data/Y}
+
+%\include{data/test}
+
+
+%%backmatter=================
+%%==========================
+\phantomsection
+\addcontentsline{toc}{part}{辭典檢索}
+\backmatter
+\onecolumn
+\pagestyle{mipage}
+
+\printindex[EC]
+
+\printindex[TH]
+
+\printindex[SJM]
+
+\printindex[BH] 
+
+\printindex[CJ] 
+
+\printindex[YY] 
+
+\printindex[GY]
+
+\end{document}

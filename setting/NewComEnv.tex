@@ -1,0 +1,254 @@
+%%%定義新命令時m對應命令後{}的個數o對應命令後[]的個數
+%% Helper macro for lemma signs.
+%% This composes the lemma sign and optional homonym number as a single textual unit.
+%#2右下垂
+\NewDocumentCommand \thelemmasign {m g} {#1\IfValueTF{#2}{\textsubscript{#2}}{}}
+
+
+%\NewDocumentCommand \thelemmasign {m g g} {#1{\textsubscript{#2}}\textsuperscript{#3}}{}}  %\IfValueTF{#3}{\textsuperscript{#3}}
+%% The lemma sign. Only for top level lemmata.
+%%
+%% Args: LemmaID, LemmaSign, [HomonymNumber]
+%%
+%% Magic includes making a hyperref target for the lemma and updating the header.
+
+%% The Lemma environment surrounds every entry.該環境可以不用在每個詞條，但爲方便源文件詞條摺疊，故套在每個詞條上。也可備擴展功能用。
+	\NewDocumentEnvironment {Lemmah} {}
+	{\par%
+		\noindent%
+		\ignorespaces}%
+	{\ignorespacesafterend
+		}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The Lemma environment surrounds every entry.
+%%% 非colorbox詞條懸掛縮進
+%% This is the basic entry indentation length.
+\newlength{\basicentryindent}
+\setlength{\basicentryindent}{0em}%0.625em %0.23em
+%% This length will be mathematically manipulated for increasing indentation
+%% when nesting beneath lemmas (VerbTheme, Subentry, etc.).
+\newlength{\entryindent}
+\setlength{\entryindent}{\basicentryindent}
+
+%% Entry indentation mechanism.
+%%
+%% This uses the experimental LaTeX3 syntax.
+\ExplSyntaxOn
+%% The entry depth number. This is used by the dot printing, but not by the actual indentation.
+\int_zero_new:N \entrydepth
+%% Increase the entry depth number.
+\NewDocumentCommand{\increntrydepth} {} {\int_incr:N \entrydepth}
+%% Reset the entry depth number. Used in each Lemma environment.
+\NewDocumentCommand{\resetentrydepth} {} {\int_zero:N \entrydepth}
+%% Print appropriate depth of dots from the margin.
+\NewDocumentCommand{\printentrydepthdots} {}
+% \fakebox[...]{...} is defined in crippenmacros.sty, it creates a visible but widthless box.
+{\fakebox{%
+		% Go back to the margin.
+		%\hspace*{-\hangindent}\hspace*{\basicentryindent}
+		% Initialize a temporary loop variable. \l_tmpa_int is a standard LaTeX3 temp var.
+		\int_set_eq:NN {\l_tmpa_int} {\entrydepth}
+		% Loop over the entry depth number until it's zero.
+		\int_do_while:nNnn {\l_tmpa_int} > {\c_zero}
+		% Print a dot and space.
+		%% FIXME: This should use \basicentryindent but that’s too wide for some reason.
+		{·\hspace*{0em} %0.5em
+			% Decrement the loop variable.
+			\int_decr:N \l_tmpa_int}}}
+\ExplSyntaxOff
+%% The Lemma environment surrounds every entry.
+\NewDocumentEnvironment {Lemma} {} %詞條懸掛縮進，用於非colorbox詞條
+{%\par%
+	% Reset the entry depth number.
+	\resetentrydepth%
+	% The memoir commands change other things so we use plain TeX hanging.
+	% This may be a bug in memoir, or a misunderstanding on my part. But this works.
+	% Set the hanging indentation length.
+	\hangindent=\entryindent%
+	% Hang after the first line.
+	\hangafter=1	% Suppress normal first-line indenting.
+	%\noindent%
+	\ignorespaces}%
+{\par\ignorespacesafterend}%\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetikzlibrary{arrows.meta}
+
+%常用字 myred
+\newcommand\buttonleftsupera[1]{  %漢字左上角部首外筆畫數目標示
+	\begin{tikzpicture}
+	\draw [draw=white,line width=0cm,
+	-{Fast Triangle[length=0mm,inset=0mm]}] %fill=white,
+	(0,0) -- (0,0);  
+	\pgftext[base,x=.7cm,y=.5cm]{\fontsizec{.5cm}\color{myred}\ncircds{#1}}  
+	\end{tikzpicture}
+}
+
+\newcommand\buttonleftsuba[1]{
+	\begin{tikzpicture}
+	\draw [draw=white,line width=0cm,
+	-{Fast Triangle[length=0mm,inset=0mm]}] %fill=white,
+	(0,0) -- (0,0);  %
+	\draw [draw=myred] (.4,.05) circle (.22cm); 
+	\pgftext[base,x=.4cm,y=-0.096cm]{\ZSKS\fontsizec{.37cm}\color{myred} #1} 
+	\end{tikzpicture}
+}
+
+%次常用字 GeRed
+\newcommand\buttonleftsuperb[1]{  %漢字左上角部首外筆畫數目標示
+	\begin{tikzpicture}
+	\draw [draw=white,line width=0cm,
+	-{Fast Triangle[length=0mm,inset=0mm]}] %fill=white,
+	(0,0) -- (0,0);  
+	\pgftext[base,x=.7cm,y=.5cm]{\fontsizec{.5cm}\color{GeRed}\ncircds{#1}}  
+	\end{tikzpicture}
+}
+
+\newcommand\buttonleftsubb[1]{
+	\begin{tikzpicture}
+	\draw [draw=white,line width=0cm,
+	-{Fast Triangle[length=0mm,inset=0mm]}] %fill=white,
+	(0,0) -- (0,0);  %
+	\draw [draw=GeRed] (.4,.05) circle (.22cm); 
+	\pgftext[base,x=.4cm,y=-0.096cm]{\ZSKS\fontsizec{.37cm}\color{GeRed} #1} 
+	\end{tikzpicture}
+}
+
+
+%餘字下沉兩行設計 GeRed
+\newcommand\buttonleftsuperc[1]{  %漢字左上角部首外筆畫數目標示
+	\begin{tikzpicture}
+	\draw [draw=white,line width=0cm,
+	-{Fast Triangle[length=0mm,inset=0mm]}] %fill=white,
+	(0,0) -- (0,0);  
+	\pgftext[base,x=.37cm,y=.2cm]{\fontsizec{.43cm}\color{GeRed}\ncircds{#1}}  
+	\end{tikzpicture}
+}
+
+\newcommand\buttonleftsubc[1]{
+	\begin{tikzpicture}
+	\draw [draw=white,line width=0cm,
+	-{Fast Triangle[length=0mm,inset=0mm]}] %fill=white,
+	(0,0) -- (0,0);  %
+	\draw [draw=GeRed] (-1,-0.2) circle (.19cm); 
+	\pgftext[base,x=-1cm,y=-0.3cm]{\ZSKS\fontsizec{.33cm}\color{GeRed} #1} 
+	\end{tikzpicture}
+}
+%%%%%%%%%%%%%同時上標superscript與下標subscript
+%\usepackage{fixltx2e}
+\usepackage{xcolor}
+\def\SPSB#1#2{\rlap{\textsuperscript{\textcolor{red}{#1}}}\SB{#2}}
+\def\SP#1{\textsuperscript{#1}}
+\def\SB#1{\textsubscript{#1}}
+
+
+ %古籍最常用漢字
+\NewDocumentCommand \centrya {o o m o o m m} %主樣式
+{\subsectionmark{[{\ubufontc#4}]{\PFTL#3}} \phantomsection\addcontentsline{toc}{subsection}{#4\textbf{#3}}%   
+\index[SJM]{{\ubufont\color{red}\Large#5}![{\ubufontc#4}]{\PFTL#3}} %漢字四角碼索引 
+\index[GY]{{\ubufont\color{red}\Large #6}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#7}]} %國音索引
+\index[YY]{{\ubufont\color{red}\Large#7}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#6}]} %粵音索引
+\index[CJ]{{\ubufontc #4}{\PFTL #3}} %倉頡索引
+\index[BH]{{\color{red}\fontsizec{0.7cm}\ncircds{#1}}![{\ubufontc#4}]{\PFTL#3}} %總筆畫數索引
+\thelemmasign{\hypertarget{#3}{\lettrine[lines=3,lhang=0.377,loversize=-0.22]{\hspace{0.15cm}\SPSB{\buttonleftsupera{#1}}{\buttonleftsuba{#2}}\hspace{-0.33cm}\color{myred}\IBMP #3}{} }} {{\color{myred}{\ubufont #4}，{\ubufont #5}，{\ubufont #6}，{\ubufont #7}。}}}
+
+
+%次常用字
+\NewDocumentCommand \centryb {o o m o o m m} %詞條主樣式
+{\subsectionmark{[{\ubufontc#4}]{\PFTL#3}} \phantomsection\addcontentsline{toc}{subsection}{#4\textbf{#3}}%   
+\index[SJM]{{\ubufont\color{red}\Large#5}![{\ubufontc#4}]{\PFTL#3}} %漢字四角碼索引 
+\index[GY]{{\ubufont\color{red}\Large #6}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#7}]} %國音索引
+\index[YY]{{\ubufont\color{red}\Large#7}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#6}]} %粵音索引
+\index[CJ]{{\ubufontc #4}{\PFTL #3}} %倉頡索引
+\index[BH]{{\color{red}\fontsizec{0.7cm}\ncircds{#1}}![{\ubufontc#4}]{\PFTL#3}} %總筆畫數索引
+	\thelemmasign{\hypertarget{#3}{\lettrine[lines=3,lhang=0.377,loversize=-0.22]{\hspace{0.15cm}\SPSB{\buttonleftsuperb{#1}}{\buttonleftsubb{#2}}\hspace{-0.33cm}\color{GeRed}\IBMP #3}{} }} {{\color{GeRed}{\ubufont #4}，{\ubufont #5}，{\ubufont #6}，{\ubufont #7}。}}}
+
+
+%又次漢字(備檢索而不索引國音與粵音)
+\NewDocumentCommand \centry {o o m o o m m} %詞條主樣式
+{\subsectionmark{[{\ubufontc#4}]{\PFTL#3}} \phantomsection\addcontentsline{toc}{subsection}{#4\textbf{#3}}%   
+\index[SJM]{{\ubufont\color{red}\Large#5}![{\ubufontc#4}]{\PFTL#3}} %漢字四角碼索引 
+%\index[GY]{{\ubufont\color{red}\Large #6}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#7}]} %國音索引
+%\index[YY]{{\ubufont\color{red}\Large#7}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#6}]} %粵音索引
+\index[CJ]{{\ubufontc #4}{\PFTL #3}} %倉頡索引
+\index[BH]{{\color{red}\fontsizec{0.7cm}\ncircds{#1}}![{\ubufontc#4}]{\PFTL#3}} %總筆畫數索引
+	\thelemmasign{\hypertarget{#3}{\lettrine[lines=2,lhang=0.377,loversize=-0.22]{\hspace{0.15cm}\SPSB{\buttonleftsuperc{#1}}{\buttonleftsubc{#2}}\hspace{-0.87cm}\color{GeRed}\HNMA #3}{} }} {{\color{GeRed}{\ubufont #4}，{\ubufont #5}，{\ubufont #6}，{\ubufont #7}。}}}
+ 
+ 
+%%%%%%%%%%音項劃分
+\newcommand\pro[1]{\eline{#1}}
+%%%%%%%%%%%%%%義項
+%\NewDocumentCommand \Def { o m } %%天干計數主義項,10項以內，華康綜藝字體
+%{{\linfontn\buttonh{#1}\hspace*{-0.4em}\IBMP #2}}% \IBMP \hspace*{-0.57em}
+\NewDocumentCommand \Def { o m } %%天干計數主義項,10項以內，華康綜藝字體
+{{\fontsizec{0.32cm}\color{mypurple}\ncircbrs{#1}} #2}% {\fontsizec{0.42cm}\HTC #2} \hspace*{-0.57em}\libcircblk\ipacircnum{#1}\fontsizec{0.417cm}
+
+\NewDocumentCommand \deff {o m}%%中文計數子義項,26項以內,方框大寫字母
+{{\fontsizec{0.32cm}\color{mypurple}\Alphcircdrsu{#1} }#2}% 
+
+
+\newcommand{\you}[1]{{\fontsizec{0.32cm}\color{black}\Alphcircdrsl{1}}#1} %主義項之引申義Also...
+\newcommand{\yin}[1]{{\fontsizec{0.32cm}\color{black}\Alphcircdrsl{8}}#1}%主義項之別出義Hence...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Example簡易例證命令
+\NewDocumentCommand \E{m}%non-itemized example 首字前不自動忽略空格，源文件需注意。
+{\IBMP #1}  %\IBMP
+\newcommand\e{\ding{45}} %\e手型符號
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%詞條內短語，亦需自動鏈接與自動索引。(條前標籤可複製作它用)
+
+
+%%詞源說明環境（暫時不用）
+%%\d derive from latin, greek etc
+%\renewcommand \d {\color{myviolet}\ding{218}}
+%\NewDocumentCommand \Etymology {m} {[\ding #1]} %帶箭頭
+%\NewDocumentCommand \Etymology {m} {[#1]}
+%%inflection說明環境\fif{}
+%\renewcommand \c {{\color{myviolet}\ding{49}}}
+%\NewDocumentCommand \fif {m} {\c %\color{main}\textbf{\textit{#1}}}
+
+\NewDocumentCommand \Etymology {m} {{\PFTL #1}}
+
+%%%%%定義簡易參照命令
+\renewcommand{\textsl}[1]{\hyperlink{#1}{\color{black}\thelemmasign{#1}}\index[TH]{{\color{red}\Large\HGB #1}!\subsectiontitle}}
+
+\NewDocumentCommand \Ref{m}%無指頭互參用
+{\hyperlink{#1}{\textbf{\thelemmasign{#1}}}\index[TH]{{\color{red}\Large\HGB #1}!\subsectiontitle}}  %標記所在詞頭
+\NewDocumentCommand \reff{m}%正文行文thesaurus互參用標記所在複音詞，複音詞均已標記為subsectionmark
+{\hyperlink{#1}{\textbf{\thelemmasign{#1}}}\index[TH]{{\color{red}\Large\HGB #1}!\subsectiontitle}}  %標記所在短語
+
+\NewDocumentCommand \Reff{m}%無指頭互參用
+{\hyperlink{#1}{\textbf{\thelemmasign{#1}}}\index[TH]{{\color{red}\Large\HGB #1}!\subsectiontitle}}
+
+\newcommand{\en}[1]{\index[EC]{{\color{red}\Large\ubufontc #1}!\subsectiontitle}\ubufontc #1}  %同時生成簡明英漢辭典
+
+
+%%%%%%%%%%%%%%邊註信息設計
+\newcommand{\buttonp}[1]%text=white,
+{   \begin{tikzpicture}[baseline=(tempname.base)]
+	\node[draw=mypurple, fill=white!105,  rounded corners=0.5pt, inner sep=1pt, minimum width=0.9em, minimum height=0.9em, general shadow={fill=gray!50, shadow xshift=0.8pt, shadow yshift=-1.5pt, shadow scale=1.02}] (tempname) {#1};
+	\end{tikzpicture}
+}
+\newcommand \syn [1] {{\color{myviolet}$\thickapprox$\Reff{#1}}}%同義詞Synonym $\thickapprox$
+\newcommand \ant [1] {{\color{myviolet}$\neq$\Reff{#1}}}%反義詞antonym ≠ $\neq$
+\newcommand \hyper [1] {{\color{myviolet}$\Uparrow$\Reff{#1}}}%上位詞Hypernyms $\Uparrow$
+\newcommand \hypo [1] {{\color{myviolet}$\Downarrow$\Reff{#1}}}%下位詞Hyponyms $\Downarrow$
+
+%%%%%%%%%%%%%字母首頁
+\newcommand*{\dictchar}[1]{
+	\clearpage
+	\twocolumn[
+	\centerline{\parbox[c][3cm][c]{3cm}{% % or \parbox[t]...
+			\centering
+			\fontsize{24}{24}
+			\selectfont
+			{#1}}}]
+}
+
+%make index command, always in the last line of the NCE.tex file
+%\makeindex
