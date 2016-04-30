@@ -1,7 +1,7 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 %%%邊線等紙張佈局
-\usepackage[centering,top=2.7cm,bottom=2.7cm,headsep=0.5cm,left=2.9cm,right=2.9cm,columnsep=2.5em]{geometry} 
+\usepackage[centering,top=2.7cm,bottom=2.7cm,headsep=0.5cm,left=2.9cm,right=2.9cm,columnsep=2.7em]{geometry} 
 
 %% Adjust the leading.行距
 \renewcommand{\baselinestretch}{1.2}
@@ -22,6 +22,7 @@
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{0}
 
+\def\contentsname{目~~錄}
 %\usepackage{multicol}
 %\renewcommand*{\contentsname}{Detailed Contents}
 %%Note also, that \renewcommand{\contentsname} will not work with babel. With babel you have to use e.g. 
@@ -44,19 +45,19 @@
 {\fontsizec{0.7cm}\color{myred}\;\titlerule*[.5pc]{.}\;\ubufontc\thecontentspage} % Page number
 
 % Section text styling
-\titlecontents{section}[0cm] % Indentation
-{\addvspace{3pt}\fontsizec{0.7cm}\color{myred}\HGB\ubufontc} % Spacing and font options for sections
-{\ubufontc\contentslabel[\thecontentslabel]{1.25cm}} % Section number
-{\contentslabel[]{1.25cm}} %unnumbered section
-{\titlerule*[.5pc]{.}\;\ubufontc\thecontentspage} % Page number
-[]
+%\titlecontents{section}[0cm] % Indentation
+%{\addvspace{3pt}\fontsizec{0.7cm}\color{myred}\HGB\ubufontc} % Spacing and font options for sections
+%{\ubufontc\contentslabel[\thecontentslabel]{1.25cm}} % Section number
+%{\contentslabel[]{1.25cm}} %unnumbered section
+%{\titlerule*[.5pc]{.}\;\ubufontc\thecontentspage} % Page number
+%[]
 
-\titlecontents*{subsection}[3.7em]
-{\contentsmargin{.7cm}\HMOP\ubufontl\large}
-{} %\ubufontl\thecontentslabel.  %subsecnumber
-{}
-{~\itshape\unifont\thecontentspage}
-[{\itshape\unifont,}~~][.]
+%\titlecontents*{subsection}[3.7em]
+%{\contentsmargin{.7cm}\HMOP\ubufontl\large}
+%{} %\ubufontl\thecontentslabel.  %subsecnumber
+%{}
+%{~\itshape\unifont\thecontentspage}
+%[{\itshape\unifont,}~~][.]
 
 %----------------------------------------------------------------------------------------
 %	MINI TABLE OF CONTENTS IN PART HEADS

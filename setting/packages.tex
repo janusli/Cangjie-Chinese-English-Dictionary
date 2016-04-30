@@ -9,9 +9,6 @@
 %% XeTeX magic. Allows line breaking after en- and em-dashes.
 \XeTeXdashbreakstate 1
 
-%%%邊線等紙張佈局
-%\usepackage[centering,top=2.7cm,bottom=2.7cm,headsep=0.5cm,footskip=0.8cm,left=2.7cm,right=2.7cm,columnsep=2.5em]{geometry} 
-
 %%%%
 %%%% Packages.
 %%%%
@@ -27,54 +24,54 @@
 %% Mathematical calculations.
 \usepackage{calc}
 
-\usepackage{titlesec,titleps,titletoc}
-\def\contentsname{目~~錄}%
+%\usepackage{titlesec,titleps,titletoc}
+%\def\contentsname{目~~錄}%
 %%%%%%%%%%%%%%%%
-\titleformat{name=\chapter,numberless}[runin] 
-{\normalfont}
-{}{0pt}{}
-\titlespacing{\chapter}
-{0em}{0em}{\wordsep}  %\wordsep
-\settitlemarks{part,chapter,section,subsection,subsubsection}
+%\titleformat{name=\chapter,numberless}[runin] 
+%{\normalfont}
+%{}{0pt}{}
+%\titlespacing{\chapter}
+%{0em}{0em}{\wordsep}  %\wordsep
+%\settitlemarks{part,chapter,section,subsection,subsubsection}
 
-\titleformat{\section}[runin] 
-{\normalfont}
-{}{0pt}{}
-\titlespacing{\section}
-{0em}{0em}{\wordsep}  %\wordsep
-\settitlemarks{part,chapter,section,subsection,subsubsection}
+%\titleformat{\section}[runin] 
+%{\normalfont}
+%{}{0pt}{}
+%\titlespacing{\section}
+%{0em}{0em}{\wordsep}  %\wordsep
+%\settitlemarks{part,chapter,section,subsection,subsubsection}
 
-\titleformat{name=\section,numberless}[runin] 
-{\normalfont}
-{}{0pt}{}
-\titlespacing{\section}
-{0em}{0em}{\wordsep}  %\wordsep
+%\titleformat{name=\section,numberless}[runin] 
+%{\normalfont}
+%{}{0pt}{}
+%\titlespacing{\section}
+%{0em}{0em}{\wordsep}  %\wordsep
 
-\settitlemarks{part,chapter,section,subsection,subsubsection}
+%\settitlemarks{part,chapter,section,subsection,subsubsection}
 
 %%%phrase信息
-\titleformat{\subsection}[runin] 
-{\normalfont}
-{}{0pt}{}
-\titlespacing{\subsection}
-{0em}{0em}{\wordsep}  %\wordsep
-\settitlemarks{part,chapter,section,subsection,subsubsection}
+%\titleformat{\subsection}[runin] 
+%{\normalfont}
+%{}{0pt}{}
+%\titlespacing{\subsection}
+%{0em}{0em}{\wordsep}  %\wordsep
+%\settitlemarks{part,chapter,section,subsection,subsubsection}
 
-\titleformat{name=\subsection,numberless}[runin] 
-{\normalfont}
-{}{0pt}{}
-\titlespacing{\subsection}
-{0em}{0em}{\wordsep}  %\wordsep
+%\titleformat{name=\subsection,numberless}[runin] 
+%{\normalfont}
+%{}{0pt}{}
+%\titlespacing{\subsection}
+%{0em}{0em}{\wordsep}  %\wordsep
 
-\settitlemarks{part,chapter,section,subsection,subsubsection}
+%\settitlemarks{part,chapter,section,subsection,subsubsection}
 %%%%%runinhead
-\makeatletter
-\newcommand\runinhead{\@startsection{section*}{4}{\z@}%paragraph
-	{-6\p@}% \p@lus -4\p@ \@minus -4\p@}%
-	{-6\p@}%
-	{\normalfont\normalsize\bfseries\boldmath
-		\rightskip=\z@ \@plus 8em\pretolerance=10000 }}
-\makeatother
+%\makeatletter
+%\newcommand\runinhead{\@startsection{section*}{4}{\z@}%paragraph
+%	{-6\p@}% \p@lus -4\p@ \@minus -4\p@}%
+%	{-6\p@}%
+%	{\normalfont\normalsize\bfseries\boldmath
+%		\rightskip=\z@ \@plus 8em\pretolerance=10000 }}
+%\makeatother
 
 %%%%%%%%%%%%%%%
 %%Special Signs
