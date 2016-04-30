@@ -1,14 +1,19 @@
 \begin{theindex}
 
   \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}()}}
-    \subitem [{\ubufontc  }]{\CJKfamily {PFTL}}, \hyperpage{2--11}
+    \subitem [{\ubufontc  }]{\CJKfamily {PFTL}}, \hyperpage{2--12}
+  \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(10)}}
+    \subitem [{\ubufontc  人十口口}]{\CJKfamily {PFTL}倌}, \hyperpage{13--20}, \hyperpage{23--37}
   \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(12)}}
     \subitem [{\ubufontc  AAA}]{\CJKfamily {PFTL}晶}, \hyperpage{1}
-  \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(3)}}
-    \subitem [{\ubufontc  ERF}]{\CJKfamily {PFTL}蘇}, \hyperpage{2}
+  \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(14)}}
+    \subitem [{\ubufontc  JRRSE}]{\CJKfamily {PFTL}嘏}, \hyperpage{21}
+    \subitem [{\ubufontc  JSSH}]{\CJKfamily {PFTL}寥}, \hyperpage{21}
   \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(4)}}
     \subitem [{\ubufontc  A}]{\CJKfamily {PFTL}日}, \hyperpage{1}
     \subitem [{\ubufontc  A}]{\CJKfamily {PFTL}曰}, \hyperpage{1}
+  \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(6)}}
+    \subitem [{\ubufontc  JND}]{\CJKfamily {PFTL}字}, \hyperpage{21}
   \item {\color  {red}\fontsize  {0.7cm}{\baselineskip }\selectfont  {\fontspec [Ligatures=Discretionary]{MnumDS}(8)}}
     \subitem [{\ubufontc  AA}]{\CJKfamily {PFTL}昌}, \hyperpage{1}
     \subitem [{\ubufontc  AA}]{\CJKfamily {PFTL}昍}, \hyperpage{1}

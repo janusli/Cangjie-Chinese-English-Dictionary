@@ -4,11 +4,13 @@
     \subitem {\ubufontc  AA}{\CJKfamily {PFTL}昌}[{\ubufontc  coeng\textsuperscript {1}}], \hyperpage{1}
   \item {\ubufont  \color  {red}\relax \fontsize  {17.28}{22}\selectfont  jing\textsuperscript {1}}
     \subitem {\ubufontc  AAA}{\CJKfamily {PFTL}晶}[{\ubufontc  zing\textsuperscript {1}}], \hyperpage{1}
+  \item {\ubufont  \color  {red}\relax \fontsize  {17.28}{22}\selectfont  liao\textsuperscript {2}}
+    \subitem {\ubufontc  JSSH}{\CJKfamily {PFTL}寥}[{\ubufontc  liu\textsuperscript {4}}], \hyperpage{21}
   \item {\ubufont  \color  {red}\relax \fontsize  {17.28}{22}\selectfont  ri\textsuperscript {4}}
     \subitem {\ubufontc  A}{\CJKfamily {PFTL}日}[{\ubufontc  jat\textsuperscript {6}}], \hyperpage{1}
-  \item {\ubufont  \color  {red}\relax \fontsize  {17.28}{22}\selectfont  su\textsuperscript {1}}
-    \subitem {\ubufontc  ERF}{\CJKfamily {PFTL}蘇}[{\ubufontc  sou\textsuperscript {2}}], \hyperpage{2}
   \item {\ubufont  \color  {red}\relax \fontsize  {17.28}{22}\selectfont  yue\textsuperscript {1}}
     \subitem {\ubufontc  A}{\CJKfamily {PFTL}曰}[{\ubufontc  joek\textsuperscript {6}}], \hyperpage{1}
+  \item {\ubufont  \color  {red}\relax \fontsize  {17.28}{22}\selectfont  zi\textsuperscript {4}}
+    \subitem {\ubufontc  JND}{\CJKfamily {PFTL}字}[{\ubufontc  zi\textsuperscript {6}}], \hyperpage{21}
 
 \end{theindex}

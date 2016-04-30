@@ -103,7 +103,7 @@
 	\draw [draw=white,line width=0cm,
 	-{Fast Triangle[length=0mm,inset=0mm]}] %fill=white,
 	(0,0) -- (0,0);  
-	\pgftext[base,x=.7cm,y=.5cm]{\fontsizec{.5cm}\color{GeRed}\ncircds{#1}}  
+	\pgftext[base,x=.7cm,y=.4cm]{\fontsizec{.5cm}\color{GeRed}\ncircds{#1}}  
 	\end{tikzpicture}
 }
 
@@ -153,18 +153,18 @@
 \index[YY]{{\ubufont\color{red}\Large#7}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#6}]} %粵音索引
 \index[CJ]{{\ubufontc #4}{\PFTL #3}} %倉頡索引
 \index[BH]{{\color{red}\fontsizec{0.7cm}\ncircds{#1}}![{\ubufontc#4}]{\PFTL#3}} %總筆畫數索引
-\thelemmasign{\hypertarget{#3}{\lettrine[lines=3,lhang=0.39,loversize=-0.2]{\hspace{0.15cm}\SPSB{\buttonleftsupera{#1}}{\buttonleftsuba{#2}}\hspace{-0.33cm}\color{myred}\IBMP #3}{} }} {{\color{myred}{\ubufont #4}，{\ubufont #5}，{\ubufont #6}，{\ubufont #7}。}}}
+\thelemmasign{\hypertarget{#3}{\lettrine[lines=3,lhang=0.39,loversize=-0.2]{\hspace{0.15cm}\SPSB{\buttonleftsupera{#1}}{\buttonleftsuba{#2}}\hspace{-0.33cm}\color{myred}\IBMP #3}{} }} {{\color{myred}{\ubufontc #4}，{\ubufontc #5}，{\ubufontc #6}，{\ubufontc #7}。}}}
 
 
 %次常用字
-\NewDocumentCommand \centryb {o o m o o m m} %詞條主樣式
+\NewDocumentCommand \centryb {o o m o o m m} %主樣式
 {\subsectionmark{[{\ubufontc#4}]{\PFTL#3}} \phantomsection\addcontentsline{toc}{subsection}{#4\textbf{#3}}%   
-\index[SJM]{{\ubufont\color{red}\Large#5}![{\ubufontc#4}]{\PFTL#3}} %漢字四角碼索引 
-\index[GY]{{\ubufont\color{red}\Large #6}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#7}]} %國音索引
-\index[YY]{{\ubufont\color{red}\Large#7}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#6}]} %粵音索引
-\index[CJ]{{\ubufontc #4}{\PFTL #3}} %倉頡索引
-\index[BH]{{\color{red}\fontsizec{0.7cm}\ncircds{#1}}![{\ubufontc#4}]{\PFTL#3}} %總筆畫數索引
-	\thelemmasign{\hypertarget{#3}{\lettrine[lines=3,lhang=0.377,loversize=-0.22]{\hspace{0.15cm}\SPSB{\buttonleftsuperb{#1}}{\buttonleftsubb{#2}}\hspace{-0.33cm}\color{GeRed}\IBMP #3}{} }} {{\color{GeRed}{\ubufont #4}，{\ubufont #5}，{\ubufont #6}，{\ubufont #7}。}}}
+	\index[SJM]{{\ubufont\color{red}\Large#5}![{\ubufontc#4}]{\PFTL#3}} %漢字四角碼索引 
+	\index[GY]{{\ubufont\color{red}\Large #6}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#7}]} %國音索引
+	\index[YY]{{\ubufont\color{red}\Large#7}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#6}]} %粵音索引
+	\index[CJ]{{\ubufontc #4}{\PFTL #3}} %倉頡索引
+	\index[BH]{{\color{red}\fontsizec{0.7cm}\ncircds{#1}}![{\ubufontc#4}]{\PFTL#3}} %總筆畫數索引
+	\thelemmasign{\hypertarget{#3}{\lettrine[lines=3,lhang=0.39,loversize=-0.2]{\hspace{0.15cm}\SPSB{\buttonleftsuperb{#1}}{\buttonleftsubb{#2}}\hspace{-0.33cm}\color{myred}\IBMP #3}{} }} {{\color{myred}{\ubufontc #4}，{\ubufontc #5}，{\ubufontc #6}，{\ubufontc #7}。}}}
 
 
 %又次漢字(備檢索而不索引國音與粵音)
@@ -175,7 +175,7 @@
 %\index[YY]{{\ubufont\color{red}\Large#7}!{\ubufontc#4}{\PFTL#3}[{\ubufontc#6}]} %粵音索引
 \index[CJ]{{\ubufontc #4}{\PFTL #3}} %倉頡索引
 \index[BH]{{\color{red}\fontsizec{0.7cm}\ncircds{#1}}![{\ubufontc#4}]{\PFTL#3}} %總筆畫數索引
-	\thelemmasign{\hypertarget{#3}{\lettrine[lines=2,lhang=0.43,loversize=-0.2]{\hspace{0.15cm}\SPSB{\buttonleftsuperc{#1}}{\buttonleftsubc{#2}}\hspace{-0.87cm}\color{GeRed}\IBMP #3}{} }} {{\color{GeRed}{\ubufont #4}，{\ubufont #5}，{\ubufont #6}，{\ubufont #7}。}}}
+	\thelemmasign{\hypertarget{#3}{\lettrine[lines=2,lhang=0.43,loversize=-0.2]{\hspace{0.15cm}\SPSB{\buttonleftsuperc{#1}}{\buttonleftsubc{#2}}\hspace{-0.87cm}\color{GeRed}\IBMP #3}{} }} {{\color{GeRed}{\ubufontc #4}，{\ubufontc #5}，{\ubufontc #6}，{\ubufontc #7}。}}}
  
  
 %%%%%%%%%%音項劃分
