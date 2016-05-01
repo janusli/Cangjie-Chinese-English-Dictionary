@@ -1,11 +1,6 @@
----
-title: [TeX 漢語字典模板](http://elegist.github.io/2016/04/30/cedic/)
-date: 2016-04-30 21:57:33
----
+# [TeX 漢語字典模板](http://elegist.github.io/2016/04/30/cedic/)
 
-<hr/>
 # Dic Page Style
-<hr/>
 
 ## 一頁樣例
 
@@ -20,9 +15,7 @@ date: 2016-04-30 21:57:33
 > - 「常用字」字頭下沉三行排版，其餘漢字字頭下沉兩行排版。
 > - 與常見英文字典類似，每頁均標記所屬「[倉頡部首](https://en.wikipedia.org/wiki/Cangjie_input_method)」，如本頁爲倉頡部首「十」（J）部，則本部首下每一頁均有此指示，以便於提升翻檢效率。
 
-<hr/>
 # Dic Entry Style
-<hr/>
 
 ## 字頭樣例
 
@@ -104,8 +97,6 @@ date: 2016-04-30 21:57:33
 
 ![國音索引](https://raw.githubusercontent.com/elegist/elegist.github.io/master/web-pics/article/cedic4.jpg)
 
-<hr/>
 # Conclusion
-<hr/>
 
-上文簡單列舉了 [Cangjie Chinese-English Dictionary](https://github.com/elegist/Cangjie-Chinese-English-Dictionary) 幾個關鍵設計樣例。此外還有許多細節源碼，以及許多 package 依賴關係，都可在[這裏](https://github.com/elegist/Cangjie-Chinese-English-Dictionary)查看、下載、改進。使用、修正本模板時有任何問題，也可聯繫作者：<elegist.github.io@gmail.com>。
+上文簡單列舉了 [Cangjie Chinese-English Dictionary](https://github.com/elegist/Cangjie-Chinese-English-Dictionary) 幾個關鍵設計樣例。查看、改進本模板時有任何問題，也可聯繫作者：<elegist.github.io@gmail.com>。
