@@ -99,4 +99,4 @@
 
 # Conclusion
 
-上文簡單列舉了 [Cangjie Chinese-English Dictionary](https://github.com/elegist/Cangjie-Chinese-English-Dictionary) 幾個關鍵設計樣例。查看、改進本模板時有任何問題，也可聯繫作者：<elegist.github.io@gmail.com>。
+上文簡單列舉了 [Cangjie Chinese-English Dictionary](https://github.com/elegist/Cangjie-Chinese-English-Dictionary) 幾個關鍵設計樣例。查看、改進本模板時有任何問題，也可聯繫作者：<mengxianjun.org@gmail.com>。
